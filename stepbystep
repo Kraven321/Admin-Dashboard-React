@@ -1,0 +1,151 @@
+Passo a passo do Admin dashBoard com react
+
+começamos importando a fonte do google, "nunito" e depois começamos a fazer a limpeza dos arquivos e o reset css que está no index.html.
+Depois criamos a pasta pages e dentro dela criamos as pastas e arquivos referentes a cada pagina que temos na nossa aplicação.
+
+Configuramos o Router dessa forma:
+
+                                    <div className="App">
+                                        <BrowserRouter>
+                                            <Routes>
+                                            <Route path="/">
+                                                <Route index element={<Home />} />
+                                                <Route path="login" element={<Login />} />
+                                                <Route path="users">
+                                                <Route index element={<List/>} />
+                                                <Route path=":userId" element={<Single/>} />
+                                                <Route path="new" element={<New/>} />
+                                                </Route>
+                                                <Route path="products">
+                                                <Route index element={<List/>} />
+                                                <Route path=":productId" element={<Single/>} />
+                                                <Route path="new" element={<New/>} />
+                                                </Route>
+                                            </Route>
+                                            </Routes>
+                                        </BrowserRouter>
+                                        </div>
+Configurado dessa maneira significa que para acessar login devemos digitar localhost:3000/login e a home localhost:3000, ja 
+para acessar os usuarios devemos digitar localhost:3000/users e para acessar um usuario especifico digitamos localhost:3000/users/qualquerID e
+para acessar os produtos localhost:3000/products, e para acessar um produto especifico localhost:3000/products/qualquerID
+
+Depois criamos em src a pasta components. criamos sidebar e navbar. importei a sidebar em home e vou começar sua construção.
+
+Voltei no meu home e apliquei um display flex na pagina, e voltei a estilizar a sidebar.
+
+Parei a estilização para instalar o material-icons.
+
+Agora vou começar a estilização da navbar.
+
+Nesse ponto, após terminar de construir minha navbar, criei o componente "widget", fui na minha home, criei a div
+"widgets", dei um display flex pra ela, e renderizei quatro "Widget"(que depois vou renderizar somente um e deixa-lo dinamico
+com as props). Depois disso voltei a construir meu componente "widget".
+
+Depois que terminei de estilizar, voltei no meu home e passei as props para o widget. Recebi essas props no componente "widget" e
+agora estou fazendo um "switch case" para cada um dos tipos de widget.
+
+                        let data;
+
+                        switch(type){
+                            case "user":
+                                data={
+                                    title:"USERS",
+                                    isMoney:false,
+                                    link:"See all users",
+                                    icon:<PersonOutlined className='icon'/>
+                                }
+                                break;
+                                case "order":
+                                    data={
+                                        title:"ORDERS",
+                                        isMoney:false,
+                                        link:"View all orders",
+                                        icon:<ShoppingCartIcon className='icon'/>
+                                    }
+                                    break;
+                                    case "earning":
+                                        data={
+                                            title:"EARNINGS",
+                                            isMoney:true,
+                                            link:"View net earnings",
+                                            icon:<MonetizationOnIcon className='icon'/>
+                                        }
+                                        break;
+                                        case "balance":
+                                            data={
+                                                title:"BALANCE",
+                                                isMoney:true,
+                                                link:"See details",
+                                                icon:<AccountBalanceWalletIcon className='icon'/>
+                                            }
+                                            break;
+                                default:
+                                break;
+Esse é o codigo dos cases. Eu declaro a variavel data, que é nula, mas que quando eu faço um switch e chamo ela,
+ela recebe um objeto, e a cada caso os objetos tem valores diferentes, por isso eu a declarei como "let", justamente para
+poder alterar essa variavel, de acordo com o "case".
+
+                        const amount=100
+                        const diff=20
+    Criei essas duas constantes para eu trazer de forma dinamica,
+    o valor que eu quero que seja renderizado (ta chumbado no codigo, mas nao no HTML).
+    Depois disso fui dentro do "return" e troquei tudo que estava chumbado
+    de maneira estatica e coloquei os valores de forma dinamica, acessando meu objeto
+    "data" e suas propriedades.
+
+    Voltei na minha home e criei a div "charts", fui em components e criei as
+    pastas "featured" e "chart". Também adicionei os mesmos estilos do "widgets" no charts,
+    dai o css deles foi escrito assim:
+                .widgets, .charts {
+                    display: flex;
+                    padding: 20px;
+                    gap: 20px;
+                }
+
+    Agora vamos começar a construir o Featured. Também tive que instalar 
+    o react progressbar para fazer minha barra de progresso circular.
+
+    Para o grafico circular eu importei esse carinha aqui: "import { CircularProgressbar } from 'react-circular-progressbar'"
+    junto com o arquivo de estilo dele "import 'react-circular-progressbar/dist/styles.css"
+
+    Finalizei o Featured e agora vou construir o Chart. Tive que instalar a lib
+    do Recharts, e importei um grafico pra dentro da aplicação. Utilizei somente
+    a DOC da lib pra poder ver qual grafico eu queria, e as unicas alterações que
+    fiz nele foi tirar o eixo Y e deixar somente uma linha no grafico, a segunda eu removi.
+
+    ATUALIZAÇÃO SOBRE O CHART: SEM O EIXO Y O GRAFICO ESTAVA CORTANDO O MES DE JANEIRO
+    ENTÃO COLOQUEI O EIXO Y DE VOLTA E ELE VOLTOU A APARECER.
+
+    Após isso fui em home e criei abaixo da div charts, a div "listContainer"
+
+    Depois fui em components e criei a pasta table. Vou começar sua construção
+
+    ATUALIZAÇÃO: ALTEREI O NOME DOS ARQUIVOS DENTRO DE TABLE PARA "LIST", POIS
+    ESTOU USANDO UMA LIB DE TABELA QUE JA POSSUI UM COMPONENTE "TABLE", E
+    POR ISSO ESTAVA DANDO ERRO, DAI TIVE QUE ALTERAR O NOME DO ARQUIVO.
+
+    
+    Finalizado a estilização do componente TABLE, comecei a mexer na pagina "List"
+    que está no endereço /users. Estou criando o componente "datatable".
+
+    Tive que instalar tambem o data-grid para renderizar no meu datatable.
+
+    Em source, criei o "datatable.js" pois vai ser o arquivo que vou colocar
+    os dados ficticios pra poder consumir esses dados na minha datatable.
+
+    Finalizei a pagina "List" do usuario e agora vou começar a fazer a pagina "single".
+    
+    ATUALIZAÇÃO: TIVE QUE VOLTAR EM CHART E PASSAR PROPS PRA ELE, PASSEI {ASPECT, TITLE},
+    DEPOIS FUI EM HOME E PASSEI  <Chart aspect={2/1} title="Last 6 Months (Revenue)"/>.
+    E TAMBÉM EM SINGLE  <Chart aspect={3 / 1} title="User Spending (Last 6 Months)"/>.
+
+    Finalizei a Pagina Single e agora vou começar a construir a form page.
+
+    Tive que criar o arquivo FormSource.jsx na pasta SRC.
+
+
+    Finalizei a pagina Form(componente "New") e agora vou trablahar nos links da pagina .
+
+    Links finalizados, agora irei trabalhar no darkmode. Ele será construido com
+    context API.
+    
