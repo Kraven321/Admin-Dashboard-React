@@ -18,11 +18,11 @@ Bem-vindo ao Admin Dashboard React! Este projeto simula a interface de usuário 
    ```bash
    git clone https://github.com/seu-usuario/admin-dashboard-react.git
 
-## Instalar Dependências
-
-```bash
-cd admin-dashboard-react
-npm install
+   
+1. **Instalar Dependencias**:
+   ```bash
+   cd admin-dashboard-react
+   npm install
 
 ## Contribuindo 🤝
 
