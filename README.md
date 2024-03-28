@@ -1,8 +1,34 @@
-# React + Vite
+# Admin Dashboard React 📊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao Admin Dashboard React! Este projeto simula a interface de usuário de um painel administrativo feito com React. É importante ressaltar que o projeto é meramente ilustrativo e nenhum dado é real, tudo é gerado hardcoded.
 
-Currently, two official plugins are available:
+## Funcionalidades Principais ℹ️
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interface Administrativa**: O projeto simula a interface de usuário de um painel administrativo.
+- **Dados Hardcoded**: Todos os dados exibidos no painel são hardcoded e não representam informações reais.
+
+## Tecnologias Utilizadas 🛠️
+
+- **React**: Biblioteca JavaScript para construção da interface do usuário.
+- **SCSS**: Estilos foram aplicados utilizando SCSS (Sass).
+
+## Como Executar o Projeto ▶️
+
+1. **Clonar o Repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/admin-dashboard-react.git
+
+## Instalar Dependências
+
+```bash
+cd admin-dashboard-react
+npm install
+
+## Contribuindo 🤝
+
+- Sinta-se à vontade para abrir uma issue se encontrar algum problema ou tiver sugestões.
+- Pull requests são bem-vindos. Fique à vontade para compartilhar melhorias ou correções de bugs.
+
+## Autor 📝
+
+Este projeto foi criado por Henrique Reis Carvalho.
